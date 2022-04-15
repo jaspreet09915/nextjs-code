@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Script from 'next/script' // it is use to optimize the external js script
 import Link from 'next/link'
+import styles1 from '../styles/Home1.module.css'
+import styles2 from '../styles/Home2.module.css' 
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -36,7 +38,8 @@ export default function Home() {
         <p className={styles.description}>
           A Blogs for hunting coder by a hunting coder
         </p>
-      <div className={styles.blogs}>
+      {/* <div className={`${styles1.con} ${styles2.con}`}> template literal in js */} 
+      <div className={`${styles1.con} ${styles2.con}`}>
         <h2>Popular Blogs</h2>
           <div className={styles.blogItem}>
             <h3>How to learn javascript in 2022</h3>

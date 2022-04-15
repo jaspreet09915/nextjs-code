@@ -3,8 +3,10 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Script from 'next/script' // it is use to optimize the external js script
 import Link from 'next/link'
-import styles1 from '../styles/Home1.module.css'
-import styles2 from '../styles/Home2.module.css' 
+// import styles1 from '../styles/Home1.module.css'
+// import styles2 from '../styles/Home2.module.css' 
+// import ".../styles/style" // not able to use global css in nextjs expect app file
+// we can use module base css file in js file expect app.js 
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -39,7 +41,7 @@ export default function Home() {
           A Blogs for hunting coder by a hunting coder
         </p>
       {/* <div className={`${styles1.con} ${styles2.con}`}> template literal in js */} 
-      <div className={`${styles1.con} ${styles2.con}`}>
+      <div>
         <h2>Popular Blogs</h2>
           <div className={styles.blogItem}>
             <h3>How to learn javascript in 2022</h3>

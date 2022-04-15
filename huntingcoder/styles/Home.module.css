@@ -52,7 +52,7 @@
 }
 
 .description {
-  margin: 4rem 0;
+ 
   line-height: 1.5;
   font-size: 1.5rem;
 }
@@ -127,4 +127,11 @@
 .mainnav ul{
   justify-content: center;
     margin-top: 35px;
+}
+
+.myImg{
+  border-radius: 10px;
+}
+.imgwrap{
+  padding: 30px 0;
 }

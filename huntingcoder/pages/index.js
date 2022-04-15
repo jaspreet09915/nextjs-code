@@ -2,6 +2,7 @@ import Head from 'next/head' // it contains all the head element
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Script from 'next/script' // it is use to optimize the external js script
+import Link from 'next/link'
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -12,10 +13,18 @@ export default function Home() {
       </Head>
       <nav className={styles.mainnav}>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Blog</li>
-          <li>Contact</li>
+        <Link href={'/'}> 
+          <a><li>Home</li></a> 
+        </Link>
+          <Link href={'/about'}>
+          <a><li>About</li></a>
+          </Link>
+          <Link href={'/blog'}>
+          <a><li>Blog</li></a>
+          </Link>
+          <Link href={'/contact'}>
+            <a><li>Contact</li></a>
+          </Link>
         </ul>
       </nav>
       {/* <Script src='/sr.js'strategy="lazyOnload" ></Script> */}

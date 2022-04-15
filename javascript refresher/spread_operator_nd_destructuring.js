@@ -1,10 +1,10 @@
 // spread operator and destructuring 
 // arr = [1,2,4]
-arr = [1,2,4,5,7]
+// arr = [1,2,4,5,7]
 
-function avg(a,b,c){
-    return a+b+c/3
-}
+// function avg(a,b,c){
+//     return a+b+c/3
+// }
 
 // usage of spread operator in array
 // let a = avg(...arr) // ...arr resolve this as 1,2,4 as an argument for avg
@@ -22,11 +22,11 @@ function avg(a,b,c){
 
 // Usage of spread operator in object 
 
-obj1 = {
-    name : "jaspreet",
-    class : "5A",
-    favLang : "javascript"
-}
+// obj1 = {
+//     name : "jaspreet",
+//     class : "5A",
+//     favLang : "javascript"
+// }
 // console.log(obj1)
 
 // without using spread operator
@@ -40,3 +40,17 @@ obj1 = {
 // console.log(obj2)
 
 
+// destructing in javascript
+let obj2 ={
+    name1 : "jaspreet",
+    class1 : "4A",
+    favLang : "javascript"
+}
+
+// without using destructing
+// let name1 = obj2.name1;
+// let class1 = obj2.clss1;
+// let favLang = obj2.favLang;
+
+let {name1 , class1 , favLang} = obj2; // Destructuring
+console.log(name1 , class1 , favLang)

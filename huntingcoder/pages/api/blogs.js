@@ -2,11 +2,18 @@
 import * as fs from 'fs';
 
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   // console.log(res);
-  fs.readdir("blogdata", (errr ,data)=>{
-      // console.log(typeof data);
+     let data = await fs.promises.readdir('blogdata');
+     let myfile;
+     let allblogs = [];
+     for (let index = 0; index < data.length; index++) {
+       const items = data[index];
+       console.log(items);
+       myfile = await fs.promises.readFile(('blogdata/'+items),'utf-8')
+       console.log(myfile)
+       allblogs.push(JSON.parse(myfile));
+      }
       console.log(data);
-      res.status(200).json(data)
-  })
+      res.status(200).json(allblogs)
 }

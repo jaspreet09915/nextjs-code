@@ -1,5 +1,5 @@
 import Head from 'next/head' // it contains all the head element 
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
@@ -28,7 +28,8 @@ export default function Home() {
           <span className=' '>Hunting Coder</span> 
         </h1>
         <div className={styles.imgwrap}>
-          <Image className={styles.myImg} src="/homeimage.jpg" alt="homepage" width={237} height ={158}/>
+          <img className={styles.myImg} src="/homeimage.jpg" alt="homepage" width={237} height ={158} />
+          {/* <image className={styles.myImg} src="/homeimage.jpg" alt="homepage" width={237} height ={158}/> */}
         </div>
         <p className={styles.description}>
           A Blogs for hunting coder by a hunting coder

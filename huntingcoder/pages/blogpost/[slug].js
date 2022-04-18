@@ -9,14 +9,16 @@ import * as fs from 'fs';
 // step2 : populate them inside the page
 const Slug = (props) => {
   const [blog, setBlog] = useState(props.myBlog);
-
+  function createMarkup(c) {
+    return {__html: c};
+  }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <div>
           <h1> {blog && blog.title} </h1>
           <hr />
-          <h3>{blog && blog.content}</h3>
+           {blog &&<div dangerouslySetInnerHTML={createMarkup(blog.content)}></div>} 
         </div>
       </main>
     </div>

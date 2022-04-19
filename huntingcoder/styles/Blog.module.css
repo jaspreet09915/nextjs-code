@@ -6,11 +6,15 @@
     justify-content: center;
     align-items: center;
     justify-content: center;
-    padding-top: 3rem;
+    padding-top: 0.5rem;
   }
 
   .blogItems{
       max-width: 45vw;
+      min-width: 112px;
+      display: flex;
+      flex-direction: column;
+      width: 517px;
   }
   .blogItems h3{
       cursor: pointer;
@@ -21,4 +25,14 @@
   }
   .blogItemP{
       max-width: 45vwh !important;
+  }
+  .btn{
+    color: white;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background-color: rgb(56, 55, 55);
+    cursor: pointer;
+    margin-bottom: 9px;
+    font-size: 13px;
+    max-width: 87px;
   }

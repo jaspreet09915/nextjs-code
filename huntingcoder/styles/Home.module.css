@@ -43,7 +43,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 1.5rem;
 }
 
 .title,
@@ -54,7 +54,8 @@
 .description {
  
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  max-width: 43rem;
 }
 
 .code {
@@ -133,5 +134,30 @@
   border-radius: 10px;
 }
 .imgwrap{
-  padding: 30px 0;
+  padding: 10px 0 30px 0;
+}
+.myImg{
+  width: 159px;
+  border-radius: 141px
+}
+.popularBlogH2{
+  font-size: 2.4rem;
+  text-align: center;
+}
+.blogItemH3{
+  font-size: 1.78rem;
+  margin-bottom: 12px;
+}
+.btn{
+  color: white;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background-color: black;
+  cursor: pointer;
+  margin-bottom: 9px;
+  font-size: 13px;
+}
+.blogItemP{
+  margin: 16px 0;
+  margin-top: 3px;
 }

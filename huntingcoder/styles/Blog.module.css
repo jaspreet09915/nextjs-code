@@ -1,5 +1,5 @@
 .main {
-    min-height: 100vh;
+    min-height: 60vh;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     padding-top: 0.5rem;
+    margin-bottom: 250px;
   }
 
   .blogItems{
@@ -36,3 +37,16 @@
     font-size: 13px;
     max-width: 87px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .blogItems{
+        max-width: 86vw;
+        min-width: 112px;
+        display: flex;
+        flex-direction: column;
+        width: 517px;
+    }
+    .main {
+        min-height: 58vh;
+      }
+} 

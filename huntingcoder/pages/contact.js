@@ -8,7 +8,6 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, phone, desc, email);
     const data = { phone, name, email, desc };
     fetch("http://localhost:3000/api/postcontact/", {
       method: "POST",
@@ -19,7 +18,6 @@ const Contact = () => {
     })
       .then((response) => response.text)
       .then((data) => {
-        console.log("Sucess:", data);
         alert("Thanks for contacting us");
         setName("");
         setPhone("");
@@ -27,11 +25,9 @@ const Contact = () => {
         setEmail("");
       })
       .catch((err) => {
-        console.log("Error:", data);
       });
   };
   const handleChange = (e) => {
-    // console.log(e.target.name)
     if (e.target.name == "phone") {
       setPhone(e.target.value);
     } else if (e.target.name == "email") {

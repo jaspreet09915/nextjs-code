@@ -1,5 +1,4 @@
 import Head from 'next/head' // it contains all the head element 
-// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
@@ -10,11 +9,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
      
-      {/* <Script src='/sr.js'strategy="lazyOnload" ></Script> */}
       <main className={styles.main}>
       <div className={styles.imgwrap}>
           <img className={styles.myImg} src="/homeimage.jpg" alt="homepage" width={237} height ={158} />
-          {/* <image className={styles.myImg} src="/homeimage.jpg" alt="homepage" width={237} height ={158}/> */}
         </div>
         <h1 className={styles.title}>
           <span className={styles.dummy}>&lt;HuntingCoder/&gt;</span> 
@@ -22,7 +19,6 @@ export default function Home() {
         <p className={styles.description}>
           A Blogs for hunting coder by a hunting coder Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam aspernatur ducimus, maiores sint itaque accusamus, veritatis nam aliquam assumenda sapiente nisi dignissimos, sequi iste impedit optio atque recusandae tempore voluptas illo doloremque officia.
         </p>
-      {/* <div className={`${styles1.con} ${styles2.con}`}> template literal in js */} 
       <div>
         <h2 className={styles.popularBlogH2}>Popular Blogs</h2>
           <div className={styles.blogItem}>

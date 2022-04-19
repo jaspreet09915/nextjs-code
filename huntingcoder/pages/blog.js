@@ -1,63 +1,72 @@
-import React from 'react'
-import styles from '../styles/Blog.module.css'
-import Link from 'next/link'
-import react , {useEffect,useState} from 'react'
-import * as fs from 'fs';
+import React from "react";
+import styles from "../styles/Blog.module.css";
+import Link from "next/link";
+import react, { useEffect, useState } from "react";
+import * as fs from "fs";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
-// step1 : collecting all the files from blogdata directory
-// step2 : Iterate through them and display them
 const Blog = (props) => {
-  const [blogs, setBlogs] = useState(props.allBlogs)
-  console.log(props)
+  const [count, setCount] = useState(2);
+  const [blogs, setBlogs] = useState(props.allBlogs);
+  console.log(props);
+  const fetchData = async() => {
+    let d = await fetch(`http://localhost:3000/api/blogs/?count=${count+2}`)
+    setCount(count+1);
+    let data = await d.json();
+    setBlogs(data)
+  };
+  console.log(props.allCount)
   return (
     <div className={styles.container}>
-       <main className={styles.main}>
-         {/* blog is the name of blog api in the api folder */}
-         {blogs.map((blogitem) => {
-        return <div className={styles.blogItems} key={blogitem.slug}>
-          <Link href={`/blogpost/${blogitem.slug}`}>
-            <h3 className={styles.blogItemh3}>{blogitem.title}</h3></Link>
-          <p className={styles.blogItemp}>{blogitem.metadesc.substr(0, 140)}...</p>
-          <button className={styles.btn}>Read More</button>
-        </div>
-      })}
-         {/* {blogs.map((blogItems)=>{
-           console.log(blogItems);
-           return<div className={styles.blogItems}  key={blogItems.title}>
-           <Link href={`/blogpost/${blogItems.slug}`}>
-             <h3  >{blogItems.title}</h3></Link>
-             <p   >{blogIte ms.content.substr(0,400)}</p>
-           </div>
-         })} */}
-        </main>
-      </div>
-  )
-}
-// server side rendering 
-// export async function getServerSideProps(context) {
-//    let data = await fetch('http://localhost:3000/api/blogs')
-//    let allBlogs = await data.json();
-//   return {
-//     props: {allBlogs}, // will be passed to the page component as props
-//   }
-// }
+      <main className={styles.main}>
+        <InfiniteScroll
+          dataLength={blogs.length} //This is important field to render the next data
+          next={fetchData}
+          hasMore={props.allCount !== blogs.length}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Yay! You have seen it all</b>
+            </p>
+          }
+        >
+          {blogs.map((blogitem) => {
+          return (
+            <div className={styles.blogItems} key={blogitem.slug}>
+              <Link href={`/blogpost/${blogitem.slug}`}>
+                <h3 className={styles.blogItemh3}>{blogitem.title}</h3>
+              </Link>
+              <p className={styles.blogItemp}>
+                {blogitem.metadesc.substr(0, 140)}...
+              </p>
+              <Link href={`/blogpost/${blogitem.slug}`}><button className={styles.btn}>Read More</button></Link>
+            </div>
+          );
+        })}
+        </InfiniteScroll>
+      </main>
+    </div>
+  );
+};
+ 
 
 // static rendering
-export async function getStaticProps(context) { 
+export async function getStaticProps(context) {
   let data = await fs.promises.readdir("blogdata");
-  let myfile; 
+  let myfile;
+  let allCount = data.length;
   let allBlogs = [];
-    for (let index = 0; index < data.length; index++) {
-      const item = data[index];
-        console.log(item)
-        myfile = await fs.promises.readFile(('blogdata/' + item), 'utf-8') 
-        allBlogs.push(JSON.parse(myfile))
-    }
+  for (let index = 0; index < 2; index++) {
+    const item = data[index];
+    console.log(item);
+    myfile = await fs.promises.readFile("blogdata/" + item, "utf-8");
+    allBlogs.push(JSON.parse(myfile));
+  }
 
   return {
-    props: {allBlogs}, // will be passed to the page component as props
-  }
+    props: { allBlogs , allCount }, // will be passed to the page component as props
+  };
 }
 
-export default Blog
+export default Blog;

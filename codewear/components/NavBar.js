@@ -28,13 +28,14 @@ const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
   return (
     <div className="flex flex-col md:flex-row md:justify-start justify-center items-center   py-2 shadow-md sticky top-0 z-30 bg-white">
       <div className="log mx-3">
-        <Link href={"/"} className="cursor-pointer">
+        <Link href={"/"} className="cursor-pointer"><a>
           <Image
             src={"/image.webp"}
             height="40"
             width={"200"}
             style="top:2px !important;"
-          />
+            />
+            </a>
         </Link>
       </div>
       <div className="nav">

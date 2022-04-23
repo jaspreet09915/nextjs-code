@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
-  console.log(subTotal)
+  // console.log(subTotal)
   useEffect(() => {
     try {
       if(localStorage.getItem("cart")){
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         saveCart(JSON.parse(localStorage.getItem("cart")))
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       localStorage.clear();      
     }
   }, []);
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
     let subt = 0;
     let key = Object.keys(myCart)
     for(let i=0; i<key.length; i++){
-      console.log(key)
+      // console.log(key)
       subt += myCart[key[i]]["price"] * myCart[key[i]].qty;  
     }
     setSubTotal(subt)
@@ -43,12 +43,12 @@ function MyApp({ Component, pageProps }) {
       newCart[itemCode] = {qty:1, price , name, size, varient}
     }
     setCart(newCart)
-    console.log(newCart)
+    // console.log(newCart)
     saveCart(newCart)
   }
   
   const clearCart = ()=>{
-    console.log("cleaning")
+    // console.log("cleaning")
     setCart({})
     saveCart({})
   }
@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
     if(itemCode in cart){
       newCart[itemCode].qty = cart[itemCode].qty - qty; 
     }
-    console.log(newCart[itemCode])
+    // console.log(newCart[itemCode])
     if(newCart[itemCode]["qty"]<=0){ // fields are inclosed in double quote
       delete newCart[itemCode]
     }

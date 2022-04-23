@@ -2,7 +2,7 @@ import Product from "../../models/Product"
 import connectDb from "../../middleware/mongoose"
 
 const handler = async (req , res)=>{
- console.log(req.body);
+//  console.log(req.body);
  if(req.method=='POST'){
   for (let i = 0; i < req.body.length; i++) {
    let p = new Product({

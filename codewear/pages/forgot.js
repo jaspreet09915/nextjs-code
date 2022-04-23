@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
-
-const Signup = () => {
+const Forgot = () => {
   return (
-    <div>
+    <div className="">
       <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
           <div>
@@ -13,7 +12,7 @@ const Signup = () => {
               alt="Workflow"
             />
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign up to your account
+              Forgot Password
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
               Or
@@ -29,20 +28,6 @@ const Signup = () => {
             <input type="hidden" name="remember" value="true" />
             <div class="rounded-md shadow-sm -space-y-px">
               <div>
-                <label for="name" class="sr-only">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autocomplete="email"
-                  required
-                  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
                 <label for="email-address" class="sr-only">
                   Email address
                 </label>
@@ -54,20 +39,6 @@ const Signup = () => {
                   required
                   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
-                />
-              </div>
-              <div>
-                <label for="password" class="sr-only">
-                  Password
-                </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autocomplete="current-password"
-                  required
-                  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
                 />
               </div>
             </div>
@@ -91,7 +62,7 @@ const Signup = () => {
                     />
                   </svg>
                 </span>
-                Sign up
+                Continue
               </button>
             </div>
           </form>
@@ -101,4 +72,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Forgot;

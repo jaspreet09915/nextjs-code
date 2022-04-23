@@ -9,6 +9,9 @@ import {
   AiFillMinusCircle,
 } from "react-icons/ai";
 import {BsFillBagCheckFill} from "react-icons/bs";
+import{
+  MdAccountCircle
+} from "react-icons/md"
 const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
   // console.log(cart , addToCart , removeFromCart , clearCart, subTotal)
   const ref = useRef();
@@ -58,13 +61,18 @@ const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
           </Link>
         </ul>
       </div>
+      
+     <Link href={'/login'}>
+      <div className="cart absolute right-8 top-3 mx-5 cursor-pointer">
+        <MdAccountCircle className=" text-xl md:text-2xl "/>
+        </div>
+     </Link>
       <div
         onClick={toggleCart}
         className="cart absolute right-0 top-3 mx-5 cursor-pointer"
-      >
+        >
         <AiOutlineShoppingCart className=" text-xl md:text-2xl " />
       </div>
-
       <div
         ref={ref}
         className={`w-72 h-[100vh] sideCart z-50 absolute right-0 top-0 bg-pink-100 px-8 p-10 transform transition-transform ${Object.keys(cart).length ==0 ? "translate-x-full" : "translate-x-0"}  `}
@@ -76,6 +84,7 @@ const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
         >
           <AiFillCloseCircle />
         </span>
+        
         <ol className="list-decimal">
           {Object.keys(cart).length == 0 && <div className="mt-4 font-semibold">Your Cart is Empty!</div>}
         { Object.keys(cart).map((k)=>{return<li key={k}>

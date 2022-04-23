@@ -9,10 +9,12 @@ import Footer from "../components/Footer";
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
+  console.log(subTotal)
   useEffect(() => {
     try {
       if(localStorage.getItem("cart")){
         setCart(JSON.parse(localStorage.getItem("cart")))
+        saveCart(JSON.parse(localStorage.getItem("cart")))
       }
     } catch (error) {
       console.log(error);
@@ -21,6 +23,17 @@ function MyApp({ Component, pageProps }) {
   }, []);
   
   
+  // saving the cart in local storage
+  const saveCart = (myCart)=>{
+    localStorage.setItem("cart",JSON.stringify(myCart))
+    let subt = 0;
+    let key = Object.keys(myCart)
+    for(let i=0; i<key.length; i++){
+      console.log(key)
+      subt += myCart[key[i]]["price"] * myCart[key[i]].qty;  
+    }
+    setSubTotal(subt)
+  }
   const addToCart =(itemCode, qty, price, name, size, varient)=>{
     let newCart = cart;
     if(itemCode in cart){
@@ -34,17 +47,6 @@ function MyApp({ Component, pageProps }) {
     saveCart(newCart)
   }
   
-  // saving the cart in local storage
-  const saveCart = (myCart)=>{
-    localStorage.setItem("cart",JSON.stringify(myCart))
-    let subt = 0;
-    let key = Object.keys(myCart)
-    for(let i=0; i<key.length; i++){
-      console.log(key)
-      subt += myCart[key[i]].price * myCart[key[i]].qty; 
-    }
-    setSubTotal(subt)
-  }
   const clearCart = ()=>{
     console.log("cleaning")
     setCart({})
@@ -62,9 +64,10 @@ function MyApp({ Component, pageProps }) {
     setCart(newCart)
     saveCart(newCart)
   }
+  
   return (
     <>
-      <NavBar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}  />
+      <NavBar  cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}  />
       <Component  cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />
       <Footer />
     </>

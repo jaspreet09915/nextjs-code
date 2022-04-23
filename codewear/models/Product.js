@@ -11,5 +11,6 @@ const ProductSchema = new mongoose.Schema({
  price :  {type:Number , required:true},
  availableQty : {type:Number , required:true},
 },{timestamps:true});
-
+// error resolve  Cannot overwrite `Product` model once compiled
+mongoose.models ={}
 export default mongoose.model("Product", ProductSchema);

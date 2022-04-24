@@ -41,22 +41,22 @@ const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
       <div className="nav">
         <ul className="flex items-center space-x-4 font-bold md:text-lg p-2 ">
           <Link href={"/tshirts"}>
-            <a>
+            <a className="hover:text-pink-600" >
               <li>Tshirt</li>
             </a>
           </Link>
           <Link href={"/hoodies"}>
-            <a>
+            <a className="hover:text-pink-600" >
               <li>Hoodies</li>
             </a>
           </Link>
           <Link href={"/stickers"}>
-            <a>
+            <a className="hover:text-pink-600" >
               <li>Stickers</li>
             </a>
           </Link>
           <Link href={"/mugs"}>
-            <a>
+            <a className="hover:text-pink-600" >
               <li>Mugs</li>
             </a>
           </Link>
@@ -91,7 +91,7 @@ const NavBar = ({cart , addToCart , removeFromCart , clearCart, subTotal}) => {
         { Object.keys(cart).map((k)=>{return<li key={k}>
              <div className="item flex my-5">
               <div className="w-2/3  font-semibold">
-               {cart[k].name}
+               {cart[k].name}({cart[k].size}/{cart[k].varient})
               </div>
               <div className=" flex items-center justify-center  font-semibold w-1/3 text-lg">
                 <AiFillMinusCircle onClick={()=>{removeFromCart( k , 1, cart[k].price, cart[k].name, cart[k].size, cart[k].varient)}} className="text-pink-500 cursor-pointer" />
